@@ -1,0 +1,26 @@
+<br>
+<div class="container">
+  <div class="row">
+    <button class="btn btn-primary" (click)="setDisplay($event)">Toggle</button>
+  </div>
+  <br>
+  <div class="row" *ngIf="display">
+    <p>This is the paragraph that is to be toggled.</p>
+  </div>
+  <br>
+  <table class="table-bordered">
+    <tr class="col-sm-2">
+      
+      <th scope="col">S.no</th>
+      <th scope="col">Click Timestamp</th>
+    
+    </tr>
+    
+    <tr [ngStyle]="{backgroundColor: clicksArray.indexOf(click) >= 4 ? 'blue' : 'none'}"
+        [ngClass]="{highlighted: clicksArray.indexOf(click) >= 4}" class="col-sm-2" *ngFor="let click of clicksArray">
+      <td>{{clicksArray.indexOf(click)+1}}</td>
+      <td>{{click}}</td>
+    </tr>
+  
+  </table>
+</div>
